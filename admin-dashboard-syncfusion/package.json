@@ -1,0 +1,39 @@
+{
+  "name": "admin-dashboard-syncfusion",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@syncfusion/ej2": "^20.1.61",
+    "@syncfusion/ej2-react-buttons": "^20.4.44",
+    "@syncfusion/ej2-react-calendars": "^20.1.58",
+    "@syncfusion/ej2-react-charts": "^20.1.61",
+    "@syncfusion/ej2-react-dropdowns": "^20.1.61",
+    "@syncfusion/ej2-react-grids": "^20.1.61",
+    "@syncfusion/ej2-react-inputs": "^20.1.61",
+    "@syncfusion/ej2-react-kanban": "^20.1.60",
+    "@syncfusion/ej2-react-popups": "^20.1.58",
+    "@syncfusion/ej2-react-richtexteditor": "^20.1.61",
+    "@syncfusion/ej2-react-schedule": "^20.1.61",
+    "@syncfusion/ej2-react-splitbuttons": "^20.4.42",
+    "axios": "^1.2.6",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-icons": "^4.4.0",
+    "react-router-dom": "^6.3.0",
+    "react-toastify": "^9.1.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-react": "^1.3.0",
+    "autoprefixer": "^10.4.7",
+    "postcss": "^8.4.14",
+    "tailwindcss": "^3.1.4",
+    "vite": "^2.9.9"
+  }
+}
