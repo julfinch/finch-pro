@@ -9,11 +9,22 @@ import useWindowSize from "../hooks/useWindowSize";
 import { Stacked, Button, SparkLine } from '../components';
 import { earningData, topSales, topCountries, SparklineAreaData,} from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
+import { useNavigate } from "react-router-dom";
 
 
 const Ecommerce = () => {
   const { width } = useWindowSize();
   const { currentColor, currentMode } = useStateContext();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    if (!user || user === 'undefined' || user === 'null') {
+    navigate("/");
+    }
+  }, [user])
+  
+  
 
   return (
     <div className="mt-4">
@@ -113,7 +124,7 @@ const Ecommerce = () => {
         <div className='flex flex-col' style={{maxHeight: "32px"}}>
           {/*1st Right Bar*/}
           {topSales.map((item) => (
-          <div className="flex flex-col gap-1 dark:text-gray-200 dark:bg-secondary-dark-bg shadow rounded-2xl lg:w-80 xl:w-400 p-1 mx-2 lg:mb-2.5 xl:mb-1 bg-white">
+          <div key={item.name} className="flex flex-col gap-1 dark:text-gray-200 dark:bg-secondary-dark-bg shadow rounded-2xl lg:w-80 xl:w-400 p-1 mx-2 lg:mb-2.5 xl:mb-1 bg-white">
             <div className="flex flex-row p-2 items-center justify-between">
               <div className="flex flex-col gap-1">
                 <div className="flex flex-row gap-1">
@@ -147,7 +158,7 @@ const Ecommerce = () => {
           <div className="shadow bg-white flex-col dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl lg:w-80 xl:w-400 mx-2 mt-2 flex px-4 py-2">
             <p className="text-sm font-semibold mb-2  text-left">Top Countries</p>
               {topCountries.map((item) => (
-                <div className='flex flex-row items-center justify-between text-sm gap-6 font-normal text-gray-500 '>
+                <div key={item.rank} className='flex flex-row items-center justify-between text-sm gap-6 font-normal text-gray-500 '>
                   <div className="flex flex-row items-center gap-2">
                     <p className="">{item.rank}. {item.country}</p>
                     <img

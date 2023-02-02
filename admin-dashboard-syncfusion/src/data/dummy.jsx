@@ -531,11 +531,11 @@ export const links = [
         id: 'notes',
         icon: <FiEdit />,
       },
-      {
-        name: 'logout',
-        id: 'logout',
-        icon: <FiSettings />,
-      },
+      // {
+      //   name: 'logout',
+      //   id: 'logout',
+      //   icon: <FiSettings />,
+      // },
     ],
   },
   /*

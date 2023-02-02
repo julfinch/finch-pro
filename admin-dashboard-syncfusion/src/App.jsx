@@ -6,8 +6,11 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { Navbar, Sidebar, ThemeSettings } from './components';
 import { Ecommerce,Analytics, Orders,Messages,LoginPage, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
 import './App.css';
-import { useLocation, Redirect } from "react-router-dom";
+import { useLocation, Navigate } from "react-router-dom";
 import { useStateContext } from './contexts/ContextProvider';
+import { UserProvider } from './contexts/UserContext';
+import { isAuthenticated } from './contexts/AuthService';
+
 
 const App = () => {
   const [login, setLogin] = useState(false);
@@ -31,6 +34,7 @@ const App = () => {
     }
   }, [pathname])
   
+  
   // const user = () => {
   //   if (localStorage.getItem('user')) {
   //     
@@ -38,7 +42,7 @@ const App = () => {
   //     ""
   //   }
   // };
-  const user = JSON.parse(localStorage.getItem('user'))
+  // const user = JSON.parse(localStorage.getItem('user'))
   
   
   return (
@@ -54,7 +58,7 @@ const App = () => {
             </div>
 
             {activeMenu ? (
-              <div className={login ? "w-0 invisible" : "w-52 fixed sidebar dark:bg-secondary-dark-bg bg-white "}>
+              <div className={pathname === '/' ? "w-0 absolute invisible absolute" : "w-52 fixed sidebar dark:bg-secondary-dark-bg bg-white "}>
                 <Sidebar />
               </div>
             ) : (
@@ -65,25 +69,24 @@ const App = () => {
 
             <div
               className={
-                login ? 'min-h-0 ' : (activeMenu
+                pathname === '/' ? 'min-h-0 w-screen ' : (activeMenu
                   ? 'dark:bg-main-dark-bg bg-main-bg min-h-screen md:ml-52 w-full  '
                   : 'bg-main-bg dark:bg-main-dark-bg  w-full min-h-screen flex-2 ')
               }
             >
-              <div className={login ? "invisible" : "fixed md:static bg-white shadow-sm dark:bg-secondary-dark-bg navbar w-full "}>
+              <div className={pathname === '/' ? "invisible absolute" : "fixed md:static bg-white shadow-sm dark:bg-secondary-dark-bg navbar w-full "}>
                 <Navbar />
               </div>
             
               <div>
                 {themeSettings && (<ThemeSettings />)}
-
+                
                 <Routes>
                   <Route path="/" element={(<LoginPage />)} />
 
                   {/* dashboard  */}
-                  <Route path="/dashboard" element={(user ? <Ecommerce /> : <Redirect to="/" />)} />
                   <Route path="/dashboard" element={(<Ecommerce />)} />
-                  <Route path="/analytics" element={(<Analytics />)} />
+                  <Route path="/analytics" element={(isAuthenticated ? <Analytics /> : <LoginPage />)} />
                   <Route path="/messages" element={(<Messages />)} />
 
                   {/* pages  */}

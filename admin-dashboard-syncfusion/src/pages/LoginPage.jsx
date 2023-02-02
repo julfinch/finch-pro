@@ -186,8 +186,8 @@ const LoginPage = () => {
     
 
     return (
-        <div className="bg-black w-full h-screen grid place-content-center">
-            <div className="w-96 h-full bg-white p-8 rounded-2xl overflow-visible">
+        <div className="dark:bg-main-dark-bg w-full h-screen grid place-content-center">
+            <div className="w-96 -ml-32 h-full bg-white p-8 rounded-2xl overflow-visible">
                 <p className="text-center text-2xl font-medium">Welcome back!</p>
                     <form onSubmit={(e) => handleFormSubmit(e)} >
                         <div className="flex flex-col">

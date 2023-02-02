@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { FiShoppingCart } from 'react-icons/fi';
 import { BsChatLeft } from 'react-icons/bs';
@@ -9,8 +9,7 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import avatar from '../data/avatar.jpg';
 import { Cart, Chat, Notification, UserProfile } from '.';
 import { useStateContext } from '../contexts/ContextProvider';
-import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
@@ -48,11 +47,20 @@ const MenuButton = ({ title, customFunc, icon, color, dotColor }) => (
 const Navbar = () => {
   const { currentColor, activeMenu, setActiveMenu, handleClick, isClicked, setScreenSize, screenSize } = useStateContext();
   const { pathname } = useLocation();
-  // const [user, setUser] = useState();
   const navigate = useNavigate();
+  // const [user, setUser] = useState({});
   
 
-  const user = JSON.parse(localStorage.getItem('user'))
+  // const user = JSON.parse(localStorage.getItem('user'))
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    if (!user || user === 'undefined' || user === 'null') {
+    navigate("/");
+    }
+  }, [user])
+  
+
 
   // if ( pathname === '/') {
   //   return <></>
@@ -74,12 +82,6 @@ const Navbar = () => {
     //   ""
     // }
 
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    navigate("/");
-  };
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
@@ -129,7 +131,7 @@ const Navbar = () => {
           >
             <img
               className="rounded-full w-8 h-8"
-              src={user.picturePath || avatar}
+              src={pathname === "/" ? avatar : user.picturePath}
               alt="user-profile"
             />
             <MdKeyboardArrowDown className="text-gray-400 text-14" />
@@ -139,7 +141,7 @@ const Navbar = () => {
         {isClicked.cart && (<Cart />)}
         {isClicked.chat && (<Chat />)}
         {isClicked.notification && (<Notification />)}
-        {isClicked.userProfile && (<UserProfile handleLogout={handleLogout} />)}
+        {isClicked.userProfile && (<UserProfile/>)}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { GiFinch } from 'react-icons/gi';
 import { FiLogOut} from 'react-icons/fi';
@@ -7,33 +7,39 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import avatar from '../data/avatar.jpg';
 import { links } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
-import { useLocation } from "react-router-dom";
-
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const { currentColor, activeMenu, setActiveMenu, screenSize } = useStateContext();
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   // const user = JSON.parse(localStorage.getItem('user'))  || "null"
-
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem('user'))
+    if (!user || user === 'undefined' || user === 'null') {
+    navigate("/");
+    }
+  }, [user])
+  
 
   // if ( pathname === '/') {
   //   return <></>
   // }
-  const user = () => {
-    if (localStorage.getItem('user')) {
-      JSON.parse(localStorage.getItem('user'))
-    } else {
-      ""
-    }
-  };
+  // const user = () => {
+  //   if (localStorage.getItem('user')) {
+  //     JSON.parse(localStorage.getItem('user'))
+  //   } else {
+  //     ""
+  //   }
+  // };
+
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
-    navigate("/");
   };
 
-  
+
   const fullName = `${user.firstName} ${user.lastName}` || "null"
 
   const handleCloseSideBar = () => {
@@ -65,7 +71,7 @@ const Sidebar = () => {
             </TooltipComponent>
           </div>
           {/*Admin Profile Card */}
-          <div className="flex flex-col dark:text-gray-200 dark:bg-main-dark-bg shadow-md p-4 border dark:border-transparent rounded-md mt-1 mb-6 items-center justify-between">
+          {/* <div className="flex flex-col dark:text-gray-200 dark:bg-main-dark-bg shadow-md p-4 border dark:border-transparent rounded-md mt-1 mb-6 items-center justify-between">
             <img
               className="rounded-full w-16 h-16"
               src={user.picturePath}
@@ -83,7 +89,7 @@ const Sidebar = () => {
                 <p className="text-black dark:text-gray-200 text-sm font-semibold">$50,000</p>
               </div>
             </div>
-          </div>
+          </div> */}
           {/*Links */}
           <div className="mt-2">
             {links.map((item) => (
@@ -107,6 +113,18 @@ const Sidebar = () => {
                 ))}
               </div>
             ))}
+            <NavLink
+                    to="/"
+                    key="logout"
+                    onClick={handleLogout}
+                    style={({ isActive }) => ({
+                      backgroundColor: isActive ? currentColor : '',
+                    })}
+                    className={({ isActive }) => (isActive ? activeLink : normalLink)}
+                  >
+                    <FiLogOut/>
+                    <span className="capitalize text-sm">logout</span>
+                  </NavLink>
           </div>          
         </>
       )}
