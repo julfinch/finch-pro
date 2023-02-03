@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { AiOutlineCalendar } from 'react-icons/ai'
 import { HiDotsVertical,HiTrendingUp, HiOutlineDotsCircleHorizontal } from 'react-icons/hi'
 import { BsArrowUp } from 'react-icons/bs';
@@ -16,13 +16,14 @@ const Ecommerce = () => {
   const { width } = useWindowSize();
   const { currentColor, currentMode } = useStateContext();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'))
-    if (!user || user === 'undefined' || user === 'null') {
-    navigate("/");
-    }
-  }, [user])
+  // const [user, setUser] = useState({})
+  const user = JSON.parse(localStorage.getItem('user'))
+  // const user = localStorage.getItem('user')
+  // useEffect(() => {
+  //   if (!user || user === 'undefined' || user === 'null') {
+  //     navigate("/");
+  //   }
+  // }, [])
   
   
 
@@ -37,7 +38,7 @@ const Ecommerce = () => {
         
         <div className="flex flex-wrap w-full mx-4 mb-3 justify-between gap-2 items-center">
           {earningData.map((item) => (
-            <div key={item.title} className="shadow-sm bg-white h-28 dark:text-gray-200 dark:bg-secondary-dark-bg mt-2 sm:mt-0 w-full lg:w-48 xl:w-64 p-3 rounded-2xl ">
+            <div key={item.title} className="shadow-sm flex-grow bg-white h-28 dark:text-gray-200 dark:bg-secondary-dark-bg mt-2 sm:mt-0 w-full lg:w-48 xl:w-64 p-3 rounded-2xl ">
               <div className="flex flex-row justify-between items-center">
                 <p className="text-sm text-gray-400 ">{item.title}</p>
                 <HiDotsVertical/>
@@ -66,7 +67,7 @@ const Ecommerce = () => {
       
       {/*Main Chart*/}
       <div className="flex gap-1 pl-3 flex-wrap justify-center">
-        <div className="shadow bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-4 rounded-2xl h-98" style={{width: `${ width > 1100 ? "706px" : "500px"}`}}>
+        <div className="shadow flex-grow bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-4 rounded-2xl h-98" style={{width: `${ width > 1100 ? "706px" : "500px"}`}}>
           <div className="flex justify-between border-b pb-2">
             <p className="font-semibold text-sm">Revenue Updates</p>
             <div className="flex items-center gap-4">

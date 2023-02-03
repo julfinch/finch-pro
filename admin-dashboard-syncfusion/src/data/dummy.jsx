@@ -476,8 +476,8 @@ export const links = [
     title: 'General',
     links: [
       {
-        name: '',
-        id: 'ecommerce',
+        name: 'dashboard',
+        id: 'dashboard',
         icon: <FiShoppingBag />,
       },
       {

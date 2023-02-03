@@ -6,7 +6,7 @@ import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
 import { enableRipple } from '@syncfusion/ej2-base';
 import { ProgressButtonComponent } from '@syncfusion/ej2-react-splitbuttons';
 enableRipple(true);
-import { toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const LoginPage = () => {
@@ -20,7 +20,13 @@ const LoginPage = () => {
     const [email, setEmail] = useState(null);
     const [password, setPassword] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [notif, setNotif] = useState("");
+
+
+    useEffect(() => {
+      if (localStorage.getItem('user')) {
+        navigate("/dashboard");
+      }
+    }, [])
 
 
     const register = async () => {
@@ -97,96 +103,29 @@ const LoginPage = () => {
         body: JSON.stringify(loginUser),
         });
         const loggedIn = await loggedInResponse.json();
-        console.log('loggedIn Response', loggedIn)
+        // console.log('loggedIn Response', loggedIn)
 
         setLoading(false);
-        toast.info(loggedIn.msg)
-        toast('🦄 loggedIn.msg', {
-                position: "top-left",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-                });
-        if (loggedIn.msg) {
-            // notification.info({
-            // message: loggedIn.msg,
-            // description: '',
-            // });
-            toast.info(loggedIn.msg)
-            toast('🦄 loggedIn.msg', loggedIn.msg , {
-                position: "top-left",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-                });
-                setNotif(loggedIn.msg);
-        }
-            
-        
-        if (loggedIn) {
+        toast.info(loggedIn.msg)         
+        if (loggedIn.msg !== "Invalid credentials. ") {
             localStorage.setItem('user', JSON.stringify(loggedIn.user))
             localStorage.setItem('token', loggedIn.token)
-            console.log('loggedIn', loggedIn);
-            console.log('loggedIn user firstName', loggedIn.user.firstName);
-            console.log('user firstName', JSON.parse(localStorage.getItem('user')));
+            // console.log('loggedIn', loggedIn);
+            // console.log('loggedIn user firstName', loggedIn.user.firstName);
+            // console.log('user firstName', JSON.parse(localStorage.getItem('user')));
 
-            // dispatch(
-            //     setLogin({
-            //         user: loggedIn.user,
-            //         token: loggedIn.token,
-            //     })
-            // );
             navigate("/dashboard");
         }
-
     };
-
-    toast.promise(
-        login,
-        {
-          pending: 'Promise is pending',
-          success: 'Promise resolved 👌',
-          error: 'Promise rejected 🤯'
-        }
-    )
-    // const isAuth = Boolean(useSelector((state) => state.isLoggedIn));
-    // console.log("state isAuth", isAuth)
-    // const user = useSelector((state) => state.user);
-    // console.log("state user", user)
-    // const token = useSelector((state) => state.token);
-    // console.log("state token", token)
 
     const handleFormSubmit = async (e) => {
         if (isLogin) await login(e);
         if (isRegister) await register();
     };
     
-    useEffect(() => {
-        toast.promise(login, {
-        pending: "Logging In...",
-        success: "Successfully Logged In!",
-        error: "error"
-        });
-    }, []);
-
-    useEffect(() => {
-        if (localStorage.getItem('user')) {
-            navigate("/dashboard")
-        }
-    }, [])
-    
-    
-
     return (
         <div className="dark:bg-main-dark-bg w-full h-screen grid place-content-center">
+            <ToastContainer />
             <div className="w-96 -ml-32 h-full bg-white p-8 rounded-2xl overflow-visible">
                 <p className="text-center text-2xl font-medium">Welcome back!</p>
                     <form onSubmit={(e) => handleFormSubmit(e)} >
@@ -199,7 +138,6 @@ const LoginPage = () => {
                             )}
                             <TextBoxComponent name="email" value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)} floatLabelType="Auto"/>
                             <TextBoxComponent name="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)} floatLabelType="Auto"/>
-                            <p className="mt-2">{notif} </p>
                             <div className=" flex flex-col justify-evenly mt-6">
                                 <ProgressButtonComponent type="submit" content="LOGIN"/>
                             </div>

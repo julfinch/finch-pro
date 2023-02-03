@@ -24,8 +24,8 @@ const Analytics = () => {
 
   return (
     <div className="mt-4">
-      <div className="flex flex-wrap lg:flex-nowrap justify-center lg:gap-3 xl:gap-4">
-        <div className="shadow bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-40 rounded-xl lg:pl-4 xl:px-8 my-3" style={{width: `${ width > 1100 ? "655px" : "415px"}`}}>
+      <div className="flex flex-wrap px-4 lg:flex-nowrap justify-center lg:gap-3 xl:gap-4">
+        <div className="shadow flex-grow bg-white dark:text-gray-200 dark:bg-secondary-dark-bg h-40 rounded-xl lg:pl-4 xl:px-8 my-3" style={{width: `${ width > 1100 ? "655px" : "415px"}`}}>
           <div className="flex flex-row justify-between items-center">
             <div>
               <p className="lg:text-sm xl:text-xl">Congratulations, {user.firstName}! 🎉</p>
@@ -57,8 +57,8 @@ const Analytics = () => {
         </div>
       </div>
         {/* SECOND ROW  - LEFT PANEL*/}
-        <div className="flex gap-1 pl-1 flex-wrap justify-center lg:mt-3 xl:mt-0">
-            <div className="shadow bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-4 rounded-2xl " style={{height: `${ width > 1100 ? "384px" : "400px"}` , width: `${ width > 1100 ? "766px" : "560px"}`}}>
+        <div className="flex px-4 gap-1 flex-wrap justify-center lg:mt-3 xl:mt-0">
+            <div className="shadow flex-grow bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-4 rounded-2xl " style={{height: `${ width > 1100 ? "384px" : "400px"}` , width: `${ width > 1100 ? "766px" : "560px"}`}}>
                    
                 <div className="xl:mt-3 flex xl:gap-4 flex-wrap xl:justify-center">
                     <div className="xl:border-r-1 border-color m-4 xl:pr-1">
@@ -116,7 +116,7 @@ const Analytics = () => {
           </div>
         </div>
         {/* SECOND ROW  - RIGHT PANEL*/}
-        <div className="shadow md:w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl xl:w-80 lg:w-64 px-6 pt-6 mx-3">
+        <div className="shadow flex-grow md:w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl xl:w-80 lg:w-64 px-6 pt-6 mx-3">
           <div className="flex justify-between">
             <p className="text-base font-semibold">Weekly Stats</p>
             <button type="button" className="text-xl font-semibold text-gray-500">

@@ -49,47 +49,22 @@ const Navbar = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   // const [user, setUser] = useState({});
-  
-
-  // const user = JSON.parse(localStorage.getItem('user'))
-
-  useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'))
-    if (!user || user === 'undefined' || user === 'null') {
-    navigate("/");
-    }
-  }, [user])
+
   
-
-
-  // if ( pathname === '/') {
-  //   return <></>
-  // }
   // useEffect(() => {
-  //   if (localStorage.getItem('user')) {
-  //     const userDetails = JSON.parse(localStorage.getItem('user'));
-  //     setUser(userDetails)
-  //   } else {
-  //     ""
+  //   const user = JSON.parse(localStorage.getItem('user'))
+  //   if (!user || user === 'undefined' || user === 'null') {
+  //     navigate("/");
   //   }
-  // }, [])
-  
-
-    // if (localStorage.getItem('user')) {
-    //   const userDetails = JSON.parse(localStorage.getItem('user'));
-    //   setUser(userDetails)
-    // } else {
-    //   ""
-    // }
+  //   setUser(user);
+  // }, [user])
 
 
   useEffect(() => {
     const handleResize = () => setScreenSize(window.innerWidth);
-
     window.addEventListener('resize', handleResize);
-
     handleResize();
-
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 

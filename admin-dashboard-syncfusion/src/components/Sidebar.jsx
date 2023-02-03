@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { GiFinch } from 'react-icons/gi';
 import { FiLogOut} from 'react-icons/fi';
@@ -7,40 +7,15 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import avatar from '../data/avatar.jpg';
 import { links } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
-import { useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const { currentColor, activeMenu, setActiveMenu, screenSize } = useStateContext();
-  const { pathname } = useLocation();
-  const navigate = useNavigate();
-  // const user = JSON.parse(localStorage.getItem('user'))  || "null"
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'))
-    if (!user || user === 'undefined' || user === 'null') {
-    navigate("/");
-    }
-  }, [user])
-  
-
-  // if ( pathname === '/') {
-  //   return <></>
-  // }
-  // const user = () => {
-  //   if (localStorage.getItem('user')) {
-  //     JSON.parse(localStorage.getItem('user'))
-  //   } else {
-  //     ""
-  //   }
-  // };
-
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
   };
 
-
-  const fullName = `${user.firstName} ${user.lastName}` || "null"
 
   const handleCloseSideBar = () => {
     if (activeMenu !== undefined && screenSize <= 900) {
@@ -98,6 +73,7 @@ const Sidebar = () => {
                   {item.title}
                 </p>
                 {item.links.map((link) => (
+                  <div className="my-2">
                   <NavLink
                     to={`/${link.name}`}
                     key={link.name}
@@ -110,6 +86,7 @@ const Sidebar = () => {
                     {link.icon}
                     <span className="capitalize text-sm">{link.id}</span>
                   </NavLink>
+                  </div>
                 ))}
               </div>
             ))}

@@ -6,7 +6,7 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import { Navbar, Sidebar, ThemeSettings } from './components';
 import { Ecommerce,Analytics, Orders,Messages,LoginPage, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
 import './App.css';
-import { useLocation, Navigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useStateContext } from './contexts/ContextProvider';
 import { UserProvider } from './contexts/UserContext';
 import { isAuthenticated } from './contexts/AuthService';
@@ -16,6 +16,15 @@ const App = () => {
   const [login, setLogin] = useState(false);
   const { pathname } = useLocation();
   const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
+  const navigate = useNavigate();
+  // const [user, setUser] = useState({})
+  const user = JSON.parse(localStorage.getItem('user'))
+  // const user = localStorage.getItem('user')
+  useEffect(() => {
+    if (!user || user === 'undefined' || user === 'null') {
+      navigate("/");
+    }
+  }, [])
 
   useEffect(() => {
     const currentThemeColor = localStorage.getItem('colorMode');
@@ -74,9 +83,9 @@ const App = () => {
                   : 'bg-main-bg dark:bg-main-dark-bg  w-full min-h-screen flex-2 ')
               }
             >
-              <div className={pathname === '/' ? "invisible absolute" : "fixed md:static bg-white shadow-sm dark:bg-secondary-dark-bg navbar w-full "}>
+              {!user || user === 'undefined' || user === 'null' ? <></> : <div className={pathname === '/' ? "invisible absolute" : "fixed md:static bg-white shadow-sm dark:bg-secondary-dark-bg navbar w-full "}>
                 <Navbar />
-              </div>
+              </div>}
             
               <div>
                 {themeSettings && (<ThemeSettings />)}
@@ -85,19 +94,19 @@ const App = () => {
                   <Route path="/" element={(<LoginPage />)} />
 
                   {/* dashboard  */}
-                  <Route path="/dashboard" element={(<Ecommerce />)} />
+                  <Route path="/dashboard" element={(isAuthenticated ? <Ecommerce /> : <LoginPage />)} />
                   <Route path="/analytics" element={(isAuthenticated ? <Analytics /> : <LoginPage />)} />
-                  <Route path="/messages" element={(<Messages />)} />
+                  <Route path="/messages" element={(isAuthenticated ? <Messages /> : <LoginPage />)} />
 
                   {/* pages  */}
-                  <Route path="/orders" element={<Orders />} />
-                  <Route path="/employees" element={<Employees />} />
-                  <Route path="/customers" element={<Customers />} />
+                  <Route path="/orders" element={(isAuthenticated ? <Orders /> : <LoginPage />)} />
+                  <Route path="/employees" element={(isAuthenticated ? <Employees /> : <LoginPage />)} />
+                  <Route path="/customers" element={(isAuthenticated ? <Customers /> : <LoginPage />)} />
 
                   {/* apps  */}
-                  <Route path="/tasks" element={<Kanban />} />
-                  <Route path="/notes" element={<Editor />} />
-                  <Route path="/calendar" element={<Calendar />} />
+                  <Route path="/tasks" element={(isAuthenticated ? <Kanban /> : <LoginPage />)} />
+                  <Route path="/notes" element={(isAuthenticated ? <Editor /> : <LoginPage />)} />
+                  <Route path="/calendar" element={(isAuthenticated ? <Calendar /> : <LoginPage />)} />
                   <Route path="/color-picker" element={<ColorPicker />} />
 
                   {/* charts  */}
