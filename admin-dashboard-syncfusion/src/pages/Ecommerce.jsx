@@ -66,8 +66,8 @@ const Ecommerce = () => {
       </div>
       
       {/*Main Chart*/}
-      <div className="flex gap-1 pl-3 flex-wrap justify-center">
-        <div className="shadow flex-grow bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-4 rounded-2xl h-98" style={{width: `${ width > 1100 ? "706px" : "500px"}`}}>
+      <div className="flex gap-1 lg:pl-3 flex-wrap justify-center p-4 lg:p-0">
+        <div className="shadow flex-1 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-4 rounded-2xl h-98 w-full">
           <div className="flex justify-between border-b pb-2">
             <p className="font-semibold text-sm">Revenue Updates</p>
             <div className="flex items-center gap-4">
@@ -116,16 +116,16 @@ const Ecommerce = () => {
                 />
               </div>
             </div>
-            <div>
-              {width > 1100 ? <Stacked currentMode={currentMode} width="335px" height="330px"/> : <Stacked currentMode={currentMode} width="450px" height="230px"/>}
+            <div className="lg:visible">
+              {width > 1100 ? <Stacked currentMode={currentMode} width="335px" height="330px"/> : <Stacked currentMode={currentMode} width={width < 500 ? "300px" : "450px"} height="230px"/>}
             </div>
           </div>
         </div>
         {/*RIGHT BARS*/}
-        <div className='flex flex-col' style={{maxHeight: "32px"}}>
+        <div className='flex flex-col mt-2 lg:mt-0'>
           {/*1st Right Bar*/}
           {topSales.map((item) => (
-          <div key={item.name} className="flex flex-col gap-1 dark:text-gray-200 dark:bg-secondary-dark-bg shadow rounded-2xl lg:w-80 xl:w-400 p-1 mx-2 lg:mb-2.5 xl:mb-1 bg-white">
+          <div key={item.name} className="flex flex-col flex-grow gap-1 dark:text-gray-200 dark:bg-secondary-dark-bg shadow rounded-2xl w-full lg:w-80 xl:w-400 p-1 mx-0 lg:mx-2 xl:mx-2 mb-4 lg:mb-2.5 xl:mb-1 bg-white">
             <div className="flex flex-row p-2 items-center justify-between">
               <div className="flex flex-col gap-1">
                 <div className="flex flex-row gap-1">
@@ -156,7 +156,7 @@ const Ecommerce = () => {
           </div>
           ))}
           {/*2nd Right Bar*/}
-          <div className="shadow bg-white flex-col dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl lg:w-80 xl:w-400 mx-2 mt-2 flex px-4 py-2">
+          <div className="shadow bg-white flex-col dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl lg:w-80 xl:w-400 lg:mx-2 lg:mt-2 flex px-4 py-2">
             <p className="text-sm font-semibold mb-2  text-left">Top Countries</p>
               {topCountries.map((item) => (
                 <div key={item.rank} className='flex flex-row items-center justify-between text-sm gap-6 font-normal text-gray-500 '>

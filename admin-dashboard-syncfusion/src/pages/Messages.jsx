@@ -17,7 +17,7 @@ const Messages = () => {
   return (
     <div className="grid grid-cols-12 h-screen border-t dark:border-transparent" >
       {/*GRID 1*/}
-      <div className="col-span-4 p-4 bg-gray-100  dark:text-gray-200 dark:bg-main-dark-bg">
+      <div className="invisible lg:visible col-span-0 lg:col-span-4 lg:p-4 bg-gray-100  dark:text-gray-200 dark:bg-main-dark-bg">
         <div className="flex flex-col p-6 ">
           {/*ONLINE NOW*/}
           <div className="border shadow-md border-gray-300 -p-2 -m-2 rounded-md dark:border-[#33373E]">
@@ -175,7 +175,7 @@ const Messages = () => {
       {/*END GRID 1*/}
 
       {/*GRID 2*/}
-      <div className="col-span-5 bg-white  dark:text-gray-200 dark:bg-secondary-dark-bg">
+      <div className="col-span-24 w-full lg:col-span-5 bg-white  dark:text-gray-200 dark:bg-secondary-dark-bg">
         {/*GRID 2 HEADER*/}
         <div className="flex flex-row justify-between items-center p-4 border-b dark:border-b-[#20232A]">
           <p className="font-medium text-base">Group #1</p>
@@ -220,7 +220,7 @@ const Messages = () => {
             />
             <div className="flex flex-col gap-2">
               <p className="text-xs font-normal w-full">Tobirama Senju  <span className="text-xs text-gray-400">1d</span></p>
-              <p className="text-xs font-light rounded-r-full rounded-bl-full font-medium bg-gray-200 py-2 px-4 dark:bg-main-dark-bg">Hii!, are we goin on new year's holiday?</p>
+              <p className="text-xs font-light rounded-r-full rounded-bl-full bg-gray-200 py-2 px-4 dark:bg-main-dark-bg">Hii!, are we goin on new year's holiday?</p>
               <p className="text-xs font-light "><span className="rounded-full bg-gray-200 py-1 px-3 dark:bg-main-dark-bg">👍 6</span><span className="rounded-full dark:bg-main-dark-bg bg-gray-200 py-1 px-3">👎 2</span></p>
             </div>
           </div>
@@ -234,7 +234,7 @@ const Messages = () => {
             />
             <div className="flex flex-col gap-2">
               <p className="text-xs font-normal w-full">Uzumaki Kushina  <span className="text-xs text-gray-400">10m</span></p>
-              <p className="text-xs font-light rounded-r-full rounded-bl-full font-medium bg-gray-200 dark:bg-main-dark-bg py-2 px-4">Last night's party was a blast! Can't get enough..</p>
+              <p className="text-xs font-light rounded-r-full rounded-bl-full bg-gray-200 dark:bg-main-dark-bg py-2 px-4">Last night's party was a blast! Can't get enough..</p>
               <img
               className="rounded-2xl w-64 h-32"
               src={party}
@@ -252,7 +252,7 @@ const Messages = () => {
             />
             <div className="flex flex-col gap-2">
               <p className="text-xs font-normal text-right w-full">You  <span className="text-xs text-gray-400">2m</span></p>
-              <p className="text-xs font-light text-black rounded-br-full rounded-l-full font-medium py-2 px-4" style={{ backgroundColor: currentColor }}>It was indeed!</p>
+              <p className="text-xs font-light text-black rounded-br-full rounded-l-full py-2 px-4" style={{ backgroundColor: currentColor }}>It was indeed!</p>
             </div>
           </div>
           {/*CHAT INPUT*/}
@@ -280,7 +280,7 @@ const Messages = () => {
       {/*END OF GRID 2*/}
 
       {/*GRID 3*/}
-      <div className="col-span-3 bg-white border-l dark:border-l-[#20232A] dark:text-gray-200 dark:bg-secondary-dark-bg">
+      <div className="invisible lg:visible col-span-0 lg:col-span-3 bg-white border-l dark:border-l-[#20232A] dark:text-gray-200 dark:bg-secondary-dark-bg">
         {/*GROUP BAR*/}
         <div className="flex flex-col p-4 border-b dark:border-b-[#20232A] items-center justify-between">
             <img

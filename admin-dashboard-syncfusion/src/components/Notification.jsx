@@ -9,9 +9,9 @@ const Notification = () => {
   const { currentColor, setIsClicked, isClicked } = useStateContext();
 
   return (
-    <div className="nav-item shadow absolute right-1 top-16 bg-white dark:bg-[#42464D] p-8 rounded-lg w-96">
+    <div className="nav-item shadow absolute right-1 top-16 bg-white dark:bg-[#42464D] p-4 lg:p-8 rounded-lg w-80 lg:w-96">
       <div className="flex justify-between items-center">
-        <p className="font-semibold text-lg dark:text-gray-200">Notifications</p>
+        <p className="font-semibold text-base md:text-lg lg:text-lg dark:text-gray-200">Notifications</p>
         <button
           type="button"
           onClick={() => setIsClicked(!isClicked)}
@@ -32,8 +32,8 @@ const Notification = () => {
             />
 
             <div>
-              <p className="font-semibold dark:text-gray-200 ">{item.message}</p>
-              <p className="text-gray-500 text-sm dark:text-gray-400"> {item.desc} </p>
+              <p className="text-sm lg:text-base font-semibold dark:text-gray-200 ">{item.message}</p>
+              <p className="text-gray-500 text-xs lg:text-sm dark:text-gray-400"> {item.desc} </p>
             </div>
           </div>
         ))}

@@ -67,7 +67,7 @@ const App = () => {
             </div>
 
             {activeMenu ? (
-              <div className={pathname === '/' ? "w-0 absolute invisible absolute" : "w-52 fixed sidebar dark:bg-secondary-dark-bg bg-white "}>
+              <div className={pathname === '/' ? "w-0 invisible absolute" : "w-52 fixed sidebar dark:bg-secondary-dark-bg bg-white "}>
                 <Sidebar />
               </div>
             ) : (

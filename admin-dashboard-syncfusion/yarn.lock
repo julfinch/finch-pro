@@ -451,26 +451,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@syncfusion/ej2-base@npm:~20.4.42, @syncfusion/ej2-base@npm:~20.4.44":
-  version: 20.4.44
-  resolution: "@syncfusion/ej2-base@npm:20.4.44"
-  dependencies:
-    "@syncfusion/ej2-icons": ~20.4.42
-  bin:
-    syncfusion-license: bin/syncfusion-license.js
-  checksum: 3dd9765d4d0ab2e78f7371a5e7fbc66c4b6a877d4576b78b9b88558735eecd35bfd5aed55e18390096694e9b27ce63a7bb794095f038f38dea42cd9ff3dade20
-  languageName: node
-  linkType: hard
-
-"@syncfusion/ej2-buttons@npm:20.4.44, @syncfusion/ej2-buttons@npm:~20.4.44":
-  version: 20.4.44
-  resolution: "@syncfusion/ej2-buttons@npm:20.4.44"
-  dependencies:
-    "@syncfusion/ej2-base": ~20.4.44
-  checksum: 9f7ba09d098ee11f935c3fd6cd8ce6dffac02f01bb4a8fed3b4bf2b29e734c4b820e457365ac88c625626425fc41a6e24a5206971a6001ca57da9b147b6c10e5
-  languageName: node
-  linkType: hard
-
 "@syncfusion/ej2-buttons@npm:~20.1.55, @syncfusion/ej2-buttons@npm:~20.1.61":
   version: 20.1.61
   resolution: "@syncfusion/ej2-buttons@npm:20.1.61"
@@ -695,13 +675,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@syncfusion/ej2-icons@npm:~20.4.42":
-  version: 20.4.42
-  resolution: "@syncfusion/ej2-icons@npm:20.4.42"
-  checksum: 8a54a15e333e8243d9e5c1a179790462f9885d1fb859f41038d429ed3fb9b0e6477927963e258645fcb07edef21ee6c8e347a74b94ea94f9e6959125e351cd02
-  languageName: node
-  linkType: hard
-
 "@syncfusion/ej2-inplace-editor@npm:~20.1.55":
   version: 20.1.55
   resolution: "@syncfusion/ej2-inplace-editor@npm:20.1.55"
@@ -901,16 +874,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@syncfusion/ej2-popups@npm:~20.4.42":
-  version: 20.4.44
-  resolution: "@syncfusion/ej2-popups@npm:20.4.44"
-  dependencies:
-    "@syncfusion/ej2-base": ~20.4.44
-    "@syncfusion/ej2-buttons": ~20.4.44
-  checksum: 591ba0ce8430f47092d22874130229071e259da39394eb0548fcb1bb222501506b444aff0e343668910d7507a47d83d191c6cdd20ac41889643c3e814b4b71eb
-  languageName: node
-  linkType: hard
-
 "@syncfusion/ej2-progressbar@npm:~20.1.57":
   version: 20.1.57
   resolution: "@syncfusion/ej2-progressbar@npm:20.1.57"
@@ -942,26 +905,6 @@ __metadata:
   dependencies:
     "@syncfusion/ej2-base": ~20.1.57
   checksum: b4b163b5d6bd733d1f41de0c934e4d386f879773fdb54013af3cdcf3b8abb970f7008a9826b35b999c65762787903591ea1ef5c3dba6ba13a284f1aa0b8302d4
-  languageName: node
-  linkType: hard
-
-"@syncfusion/ej2-react-base@npm:~20.4.42":
-  version: 20.4.42
-  resolution: "@syncfusion/ej2-react-base@npm:20.4.42"
-  dependencies:
-    "@syncfusion/ej2-base": ~20.4.42
-  checksum: c67639c9b1b28552cb92cd32437318d388609616d80a61327cf7334a36eab99c704290b64535aa69de7dac499b8a11ce1a448f421d4d4ceff9340367c6bc6740
-  languageName: node
-  linkType: hard
-
-"@syncfusion/ej2-react-buttons@npm:^20.4.44":
-  version: 20.4.44
-  resolution: "@syncfusion/ej2-react-buttons@npm:20.4.44"
-  dependencies:
-    "@syncfusion/ej2-base": ~20.4.44
-    "@syncfusion/ej2-buttons": 20.4.44
-    "@syncfusion/ej2-react-base": ~20.4.42
-  checksum: add840849d9e7c651f93888693225e1e0bb28c589452f38f453604090af8dc09077537d9df4339a7919512acd0dccedb59531545c8aff60806bceece3c9c0f9c
   languageName: node
   linkType: hard
 
@@ -1064,17 +1007,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@syncfusion/ej2-react-splitbuttons@npm:^20.4.42":
-  version: 20.4.42
-  resolution: "@syncfusion/ej2-react-splitbuttons@npm:20.4.42"
-  dependencies:
-    "@syncfusion/ej2-base": ~20.4.42
-    "@syncfusion/ej2-react-base": ~20.4.42
-    "@syncfusion/ej2-splitbuttons": 20.4.42
-  checksum: 12f93da6e5a218516e2e11a6f65ac414dc459219cc1bd971ba29846e98974e80f4ddb3cc8b5e259943762092196e13a7515e9348df4e2b61759a8b4d6b0240a9
-  languageName: node
-  linkType: hard
-
 "@syncfusion/ej2-richtexteditor@npm:20.1.61, @syncfusion/ej2-richtexteditor@npm:~20.1.55, @syncfusion/ej2-richtexteditor@npm:~20.1.60, @syncfusion/ej2-richtexteditor@npm:~20.1.61":
   version: 20.1.61
   resolution: "@syncfusion/ej2-richtexteditor@npm:20.1.61"
@@ -1105,16 +1037,6 @@ __metadata:
     "@syncfusion/ej2-navigations": ~20.1.61
     "@syncfusion/ej2-popups": ~20.1.58
   checksum: e19652b28eebedd5d3ec4a0dc1b5225d18d2274aedfc56c38e4e3dc4196baea44dc49b7fffd6589b5580409d5a8e3e6b4874d40325c572550cb4a3bb5f93bf25
-  languageName: node
-  linkType: hard
-
-"@syncfusion/ej2-splitbuttons@npm:20.4.42":
-  version: 20.4.42
-  resolution: "@syncfusion/ej2-splitbuttons@npm:20.4.42"
-  dependencies:
-    "@syncfusion/ej2-base": ~20.4.42
-    "@syncfusion/ej2-popups": ~20.4.42
-  checksum: 0b3ec899bd3901aba077d651e06f340d101d8166c445672856031a3f5e9f87fb5115dedd40e2437d45f35a12c339fcb9751ed7a1807f57c1bdcac4ec8d6d2276
   languageName: node
   linkType: hard
 
@@ -1332,7 +1254,6 @@ __metadata:
   resolution: "admin-dashboard-syncfusion@workspace:."
   dependencies:
     "@syncfusion/ej2": ^20.1.61
-    "@syncfusion/ej2-react-buttons": ^20.4.44
     "@syncfusion/ej2-react-calendars": ^20.1.58
     "@syncfusion/ej2-react-charts": ^20.1.61
     "@syncfusion/ej2-react-dropdowns": ^20.1.61
@@ -1342,7 +1263,6 @@ __metadata:
     "@syncfusion/ej2-react-popups": ^20.1.58
     "@syncfusion/ej2-react-richtexteditor": ^20.1.61
     "@syncfusion/ej2-react-schedule": ^20.1.61
-    "@syncfusion/ej2-react-splitbuttons": ^20.4.42
     "@types/react": ^18.0.0
     "@types/react-dom": ^18.0.0
     "@vitejs/plugin-react": ^1.3.0
@@ -1351,6 +1271,7 @@ __metadata:
     postcss: ^8.4.14
     react: ^18.0.0
     react-dom: ^18.0.0
+    react-dropzone: ^14.2.3
     react-icons: ^4.4.0
     react-router-dom: ^6.3.0
     react-toastify: ^9.1.1
@@ -1443,6 +1364,13 @@ __metadata:
   version: 0.4.0
   resolution: "asynckit@npm:0.4.0"
   checksum: 7b78c451df768adba04e2d02e63e2d0bf3b07adcd6e42b4cf665cb7ce899bedd344c69a1dcbce355b5f972d597b25aaa1c1742b52cffd9caccb22f348114f6be
+  languageName: node
+  linkType: hard
+
+"attr-accept@npm:^2.2.2":
+  version: 2.2.2
+  resolution: "attr-accept@npm:2.2.2"
+  checksum: 496f7249354ab53e522510c1dc8f67a1887382187adde4dc205507d2f014836a247073b05e9d9ea51e2e9c7f71b0d2aa21730af80efa9af2d68303e5f0565c4d
   languageName: node
   linkType: hard
 
@@ -2060,6 +1988,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"file-selector@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "file-selector@npm:0.6.0"
+  dependencies:
+    tslib: ^2.4.0
+  checksum: 7d051b6e5d793f3c6e2ab287ba5e7c2c6a0971bccc9d56e044c8047ba483e18f60fc0b5771c951dc707c0d15f4f36ccb4f1f1aaf385d21ec8f7700dadf8325ba
+  languageName: node
+  linkType: hard
+
 "fill-range@npm:^7.0.1":
   version: 7.0.1
   resolution: "fill-range@npm:7.0.1"
@@ -2445,7 +2382,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"loose-envify@npm:^1.1.0":
+"loose-envify@npm:^1.1.0, loose-envify@npm:^1.4.0":
   version: 1.4.0
   resolution: "loose-envify@npm:1.4.0"
   dependencies:
@@ -2727,6 +2664,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"object-assign@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "object-assign@npm:4.1.1"
+  checksum: fcc6e4ea8c7fe48abfbb552578b1c53e0d194086e2e6bbbf59e0a536381a292f39943c6e9628af05b5528aa5e3318bb30d6b2e53cadaf5b8fe9e12c4b69af23f
+  languageName: node
+  linkType: hard
+
 "object-hash@npm:^3.0.0":
   version: 3.0.0
   resolution: "object-hash@npm:3.0.0"
@@ -2885,6 +2829,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prop-types@npm:^15.8.1":
+  version: 15.8.1
+  resolution: "prop-types@npm:15.8.1"
+  dependencies:
+    loose-envify: ^1.4.0
+    object-assign: ^4.1.1
+    react-is: ^16.13.1
+  checksum: c056d3f1c057cb7ff8344c645450e14f088a915d078dcda795041765047fa080d38e5d626560ccaac94a4e16e3aa15f3557c1a9a8d1174530955e992c675e459
+  languageName: node
+  linkType: hard
+
 "proxy-from-env@npm:^1.1.0":
   version: 1.1.0
   resolution: "proxy-from-env@npm:1.1.0"
@@ -2918,12 +2873,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-dropzone@npm:^14.2.3":
+  version: 14.2.3
+  resolution: "react-dropzone@npm:14.2.3"
+  dependencies:
+    attr-accept: ^2.2.2
+    file-selector: ^0.6.0
+    prop-types: ^15.8.1
+  peerDependencies:
+    react: ">= 16.8 || 18.0.0"
+  checksum: 174b744d5ca898cf3d84ec1aeb6cef5211c446697e45dc8ece8287a03d291f8d07253206d5a1247ef156fd385d65e7de666d4d5c2986020b8543b8f2434e8b40
+  languageName: node
+  linkType: hard
+
 "react-icons@npm:^4.4.0":
   version: 4.4.0
   resolution: "react-icons@npm:4.4.0"
   peerDependencies:
     react: "*"
   checksum: dd93a1dcc8ac8a3cf46a2b33e80b586fa967331fa5fcb90d061abf276155a8363a331643e203d67cb9bab4261d00a757da854bcce1fce2c6e4258bf3e33f711b
+  languageName: node
+  linkType: hard
+
+"react-is@npm:^16.13.1":
+  version: 16.13.1
+  resolution: "react-is@npm:16.13.1"
+  checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
   languageName: node
   linkType: hard
 
@@ -3324,6 +3299,13 @@ __metadata:
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: dbe628ef87f66691d5d2959b3e41b9ca0045c3ee3c7c7b906cc1e328b39f199bb1ad9e671c39025bd56122ac57dfbf7385a94843b1cc07c60a4db74795829acd
+  languageName: node
+  linkType: hard
+
+"tslib@npm:^2.4.0":
+  version: 2.5.0
+  resolution: "tslib@npm:2.5.0"
+  checksum: ae3ed5f9ce29932d049908ebfdf21b3a003a85653a9a140d614da6b767a93ef94f460e52c3d787f0e4f383546981713f165037dc2274df212ea9f8a4541004e1
   languageName: node
   linkType: hard
 

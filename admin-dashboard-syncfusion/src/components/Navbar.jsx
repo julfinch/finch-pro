@@ -79,7 +79,7 @@ const Navbar = () => {
   const handleActiveMenu = () => setActiveMenu(!activeMenu);
 
   return (
-    <div className="flex justify-between p-2 md:ml-6 md:mr-6 relative">
+    <div className="flex justify-between p-2 md:ml-6 md:mr-6 relative border-b border-gray-500 lg:border-current lg:border-b-0">
       
         <MenuButton customFunc={handleActiveMenu} color={currentColor} icon={activeMenu ? <RiArrowLeftLine/> : <AiOutlineMenu />} />
           <div className="flex-row hidden sm:flex rounded-full p-1 bg-gray-200 dark:bg-main-dark-bg items-center justify-between">

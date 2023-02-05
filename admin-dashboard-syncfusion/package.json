@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "@syncfusion/ej2": "^20.1.61",
-    "@syncfusion/ej2-react-buttons": "^20.4.44",
     "@syncfusion/ej2-react-calendars": "^20.1.58",
     "@syncfusion/ej2-react-charts": "^20.1.61",
     "@syncfusion/ej2-react-dropdowns": "^20.1.61",
@@ -19,10 +18,10 @@
     "@syncfusion/ej2-react-popups": "^20.1.58",
     "@syncfusion/ej2-react-richtexteditor": "^20.1.61",
     "@syncfusion/ej2-react-schedule": "^20.1.61",
-    "@syncfusion/ej2-react-splitbuttons": "^20.4.42",
     "axios": "^1.2.6",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-dropzone": "^14.2.3",
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0",
     "react-toastify": "^9.1.1"
