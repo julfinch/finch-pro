@@ -10,7 +10,7 @@ import { registerLicense } from '@syncfusion/ej2-base';
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 // Registering Syncfusion license key
-registerLicense('@32302e342e30KS7S2eMQ3+qakLZr2uBDJ+cDSYTkaUFD9ecO9meSyfA=');
+registerLicense('ORg4AjUWIQA/Gnt2VVhkQlFacldJXnxIfkx0RWFab19xflBEal5ZVAciSV9jS31TdEVrWH1acnVXQWlUUQ==');
 
 root.render(
   <StrictMode>
