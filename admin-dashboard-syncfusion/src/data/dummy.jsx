@@ -502,6 +502,11 @@ export const links = [
         icon: <AiOutlineShoppingCart />,
       },
       {
+        name: 'users',
+        id: 'users',
+        icon: <AiOutlineShoppingCart />,
+      },
+      {
         name: 'employees',
         id: 'employees',
         icon: <RiContactsFill />,
