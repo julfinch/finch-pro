@@ -115,17 +115,31 @@ const Products = () => {
         </Box> :
         <div className="flex flex-wrap w-full mt-10 justify-between gap-4 items-center relative">
             {allProducts.map((item) => (
-            <div key={item.title} className="drop-shadow-xl relative flex-grow bg-white h-28 dark:text-gray-200 dark:bg-secondary-dark-bg mt-2 sm:mt-0 w-full lg:w-64 xl:w-64 p-3 rounded-2xl ">
+            <div key={item.title} className="drop-shadow-xl dark:hover:bg-gray-800 hover:bg-slate-200 cursor-pointer relative flex-grow bg-white h-36 text-black dark:text-gray-200 dark:bg-secondary-dark-bg mt-2 sm:mt-0 w-full lg:w-64 xl:w-64 p-3 rounded-2xl ">
                 
                     <div className="w-3 h-full absolute top-0 left-0 overflow-hidden rounded-l-2xl bg-gray-400 dark:bg-gray-600"></div>
-                    <div className="flex flex-row justify-between items-center ml-2">
+                    <p className="text-sm ml-2 truncate">{item.title}</p>
+                    <div className="flex flex-row justify-between items-center mt-2 ml-2">
                         <img
                             src={item.img}
                             className="rounded-md w-20 h-20"
                         />
                         <div className="text-right flex-wrap w-3/5">
-                            <p className="text-sm">{item.title}</p>
-                            <p className="text-xs text-gray-400 truncate">{item._id}</p>
+                            
+                            <div className="flex flex-row justify-between w-full text-xs text-black dark:text-gray-400">
+                                <div>S: ₱{item.prices[0]}</div>
+                                <div>M: ₱{item.prices[1]}</div>
+                                <div>L: ₱{item.prices[2]}</div>
+                            </div>
+                            <span className="text-xs">
+                                {item.extraOptions.map((extra) => (
+                                <p className="text-xs text-black dark:text-gray-400 font-extralight" key={extra._id}>{extra.text} - {extra.price}</p>
+                                ))}
+                            </span>
+                            {/* <p className="text-xs text-gray-400 truncate">{item._id}</p> */}
+                            
+
+                            
                         </div>
                         
                     </div>
