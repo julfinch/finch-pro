@@ -4,7 +4,7 @@ import { FiSettings } from 'react-icons/fi';
 import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Sidebar, ThemeSettings } from './components';
-import { Ecommerce,Analytics, Orders,Messages,LoginPage, Calendar, Employees, Stacked, Pyramid, Customers, Users, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
+import { Ecommerce,Analytics, Orders,Messages,LoginPage, Calendar,Products, Employees, Stacked, Pyramid, Customers, Users, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
 import './App.css';
 import { useLocation, useNavigate } from "react-router-dom";
 import { useStateContext } from './contexts/ContextProvider';
@@ -100,6 +100,7 @@ const App = () => {
 
                   {/* pages  */}
                   <Route path="/orders" element={(isAuthenticated ? <Orders /> : <LoginPage />)} />
+                  <Route path="/products" element={(isAuthenticated ? <Products /> : <LoginPage />)} />
                   <Route path="/users" element={(isAuthenticated ? <Users /> : <LoginPage />)} />
                   <Route path="/employees" element={(isAuthenticated ? <Employees /> : <LoginPage />)} />
                   <Route path="/customers" element={(isAuthenticated ? <Customers /> : <LoginPage />)} />

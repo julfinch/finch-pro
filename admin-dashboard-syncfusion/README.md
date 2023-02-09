@@ -1,7 +1,7 @@
 # FinchPro
   -Live Site URL: [https://finch-pro.vercel.app/](https://finch-pro.vercel.app/)
 
-  -Admin dashboard react app that utilizes some of the great REACT UI components by Syncfusion. .
+  -Fullstack MERN web app that utilizes some of the great REACT UI components by Syncfusion. .
   
 ## Table of contents
 
@@ -49,6 +49,64 @@ Add the following:
 ```
 
 ### Additional Info
+1. **Finch-Tea CORS Error where Finch-Pro can't fetch data from Finch-Tea Next.js API.**
+
+  ```shell
+    Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://finch-tea.vercel.app/api/orders. (Reason: CORS header ‘Access-Control-Allow-Origin’ missing). Status code: 201.
+  ```
+
+  Solution: [https://vercel.com/guides/how-to-enable-cors](https://vercel.com/guides/how-to-enable-cors)
+  1. Go to Finch-Tea **next.config.js** and add the code below:
+
+    ```shell
+      // next.config.js
+      module.exports = {
+        async headers() {
+          return [
+            {
+              // matching all API routes
+              source: "/api/:path*",
+              headers: [
+                { key: "Access-Control-Allow-Credentials", value: "true" },
+                { key: "Access-Control-Allow-Origin", value: "*" },
+                { key: "Access-Control-Allow-Methods", value: "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+                { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
+              ]
+            }
+          ]
+        }
+      };
+    ```
+
+    FINAL CODE:
+
+      ```shell
+        /** @type {import('next').NextConfig} */
+        const nextConfig = {
+          reactStrictMode: true,
+          swcMinify: true,
+          images: {
+            domains:["res.cloudinary.com"]
+          },
+          async headers() {
+            return [
+              {
+                // matching all API routes
+                source: "/api/:path*",
+                headers: [
+                  { key: "Access-Control-Allow-Credentials", value: "true" },
+                  { key: "Access-Control-Allow-Origin", value: "*" },
+                  { key: "Access-Control-Allow-Methods", value: "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+                  { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
+                ]
+              }
+            ]
+          }
+        }
+
+        module.exports = nextConfig
+      ```
+
 1. **NeuBlock server deployment error on Render.com**
   1. Delete the **yarn.lock** inside the NeuBlock server folder.
   1. Go to neublock-backend dashboard then click settings. Under settings, change the Build Command and Start Command to npm instead of the default yarn.

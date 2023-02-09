@@ -1,27 +1,26 @@
 import React,{ useState, useEffect } from "react";
-import { Box, useTheme } from "@mui/material";
+import { Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import useWindowSize from "../hooks/useWindowSize";
-
-import axios from "axios";
+import Spinner from "../components/Spinner";
 import { DataGrid } from "@mui/x-data-grid";
 import { getAllUsers } from "../api/UserRequests"
 
 const Users = () => {
     const { width } = useWindowSize();
     const [allUsers, setAllUsers ] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         const fetchUsers = async () => {
+            setIsLoading(isLoading)
             const getUsers = await getAllUsers();
             const getUsersData = getUsers.data
             setAllUsers(getUsersData);
+            setIsLoading(!isLoading)
         };
         fetchUsers();
     },[])
-    // console.log("all users", allUsers);
-    
-    
 
     const columns = [
         {
@@ -51,22 +50,6 @@ const Users = () => {
         headerName: "Email",
         flex: 1,
         },
-        // {
-        // field: "phoneNumber",
-        // headerName: "Phone Number",
-        // flex: 0.5,
-        // renderCell: (params) => {return params.value.replace(/^(\d{3})(\d{3})(\d{4})/, "($1)$2-$3")}
-        // },
-        // {
-        // field: "country",
-        // headerName: "Country",
-        // flex: 0.4,
-        // },
-        // {
-        // field: "occupation",
-        // headerName: "Occupation",
-        // flex: 1,
-        // },
         {
         field: "role",
         headerName: "Role",
@@ -76,15 +59,15 @@ const Users = () => {
 
     return (
         
-        <Box className="my-2 mx-4">
+        <Box className="mt-4 mx-4">
             {/*Dashboard Header*/}
             <div className="flex flex-row mt-20 sm:mt-2 mb-2 justify-between">
             <p className="font-bold dark:text-gray-400 text-xl">NeuBlock Users</p>
             <p className="text-xs text-gray-500 flex flex-row items-center gap-2"> </p>
             </div>
-        {/* <Header title="CUSTOMERS" subtitle="List of Customers" /> */}
+        
         <Box
-            className="mt-2 lg:mt-10"
+            className="mt-2 lg:mt-10 relative"
             height={width > 1100 ? "75vh" : width < 500 ? "75vh" : "65vh"}
             sx={{
             "& .MuiDataGrid-root": {
@@ -119,6 +102,9 @@ const Users = () => {
             "& .css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root": {
                 color: `${"white"} !important`,
             },
+            "& MuiTablePagination-selectLabel css-pdct74-MuiTablePagination-selectLabel": {
+                color: `${"white"} !important`,
+            },
             }}
         >
             <DataGrid
@@ -127,6 +113,7 @@ const Users = () => {
             rows={allUsers || []}
             columns={columns}
             />
+            {isLoading ? <div className="absolute left-1/2 top-1/2 z-50"><Spinner/></div> : <></>}
         </Box>
         </Box>
     );

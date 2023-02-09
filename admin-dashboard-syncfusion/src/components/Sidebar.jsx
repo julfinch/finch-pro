@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { GiFinch } from 'react-icons/gi';
 import { FiLogOut} from 'react-icons/fi';
@@ -7,9 +7,23 @@ import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import avatar from '../data/avatar.jpg';
 import { links } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const { currentColor, activeMenu, setActiveMenu, screenSize } = useStateContext();
+  const { pathname } = useLocation();
+  // const [person, setPerson] = useState([])
+  const user = JSON.parse(localStorage.getItem('user'))
+
+  // useEffect(() => {
+  //   if (!user || user === 'undefined' || user === 'null') {
+  //     return <></> } else {
+  //      const currentUser = JSON.parse(localStorage.getItem('user'))
+  //     setPerson(currentUser)
+  //   }
+  // }, [])
+  // console.log('person', person)
+  
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -22,6 +36,8 @@ const Sidebar = () => {
       setActiveMenu(false);
     }
   };
+
+  const fullName = user === null ? "John Doe" : `${user.firstName} ${user.lastName}`;
 
   const activeLink = 'flex items-center gap-5 pl-4 pt-2 pb-2 rounded-lg  text-white  text-md ';
   const normalLink = 'flex items-center gap-5 pl-4 pt-2 pb-2 rounded-lg text-md text-gray-700 dark:text-gray-200 dark:hover:text-black hover:bg-light-gray ';
@@ -46,15 +62,15 @@ const Sidebar = () => {
             </TooltipComponent>
           </div>
           {/*Admin Profile Card */}
-          {/* <div className="flex flex-col dark:text-gray-200 dark:bg-main-dark-bg shadow-md p-4 border dark:border-transparent rounded-md mt-1 mb-6 items-center justify-between">
+          {pathname !== "/" ? <div className="flex flex-col dark:text-gray-200 dark:bg-main-dark-bg shadow-md p-4 border dark:border-transparent rounded-md mt-1 mb-6 items-center justify-between">
             <img
               className="rounded-full w-16 h-16"
-              src={user.picturePath}
+              src={pathname === "/" ? avatar : user.picturePath}
               alt="user-profile"
             />
             <p className="font-medium text-lg">{fullName || ""}</p>
-            <p className="font-normal text-sm text-gray-600">Administrator</p>
-            <div className="mt-4 flex flex-row gap-3">
+            <p className="font-normal text-sm text-gray-600">{pathname === "/" ? "" : user.role}</p>
+            {/* <div className="mt-4 flex flex-row gap-3">
               <div className="flex flex-col items-center gap-1">
                 <p className="text-gray-400 text-xs">Daily</p>
                 <p className="text-black dark:text-gray-200 text-sm font-semibold">$10,000</p>
@@ -63,8 +79,9 @@ const Sidebar = () => {
                 <p className="text-gray-400 text-xs">Weekly</p>
                 <p className="text-black dark:text-gray-200 text-sm font-semibold">$50,000</p>
               </div>
-            </div>
-          </div> */}
+            </div> */}
+          </div> : <></>
+            }
           {/*Links */}
           <div className="mt-2">
             {links.map((item) => (

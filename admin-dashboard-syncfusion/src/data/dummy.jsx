@@ -1,8 +1,9 @@
 import React from 'react';
 import { AiOutlineCalendar, AiOutlineShoppingCart, AiOutlineAreaChart, AiOutlineBarChart, AiOutlineStock } from 'react-icons/ai';
 import { FiShoppingBag, FiEdit, FiPieChart, FiBarChart, FiCreditCard, FiStar, FiShoppingCart, FiSettings } from 'react-icons/fi';
-import { BsKanban,BsChatDots, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft } from 'react-icons/bs';
+import { BsKanban,BsChatDots, BsBarChart, BsBoxSeam, BsCurrencyDollar, BsShield, BsChatLeft, BsPeopleFill } from 'react-icons/bs';
 import { RiContactsFill } from 'react-icons/ri';
+import { TbCup } from 'react-icons/tb';
 import { RiContactsLine, RiStockLine } from 'react-icons/ri';
 import { MdOutlineSupervisorAccount } from 'react-icons/md';
 import { HiOutlineRefresh } from 'react-icons/hi';
@@ -502,20 +503,25 @@ export const links = [
         icon: <AiOutlineShoppingCart />,
       },
       {
+        name: 'products',
+        id: 'products',
+        icon: <TbCup/>,
+      },
+      {
         name: 'users',
         id: 'users',
-        icon: <AiOutlineShoppingCart />,
+        icon: <BsPeopleFill />,
       },
-      {
-        name: 'employees',
-        id: 'employees',
-        icon: <RiContactsFill />,
-      },
-      {
-        name: 'customers',
-        id: 'customers',
-        icon: <RiContactsLine />,
-      },
+      // {
+      //   name: 'employees',
+      //   id: 'employees',
+      //   icon: <RiContactsFill />,
+      // },
+      // {
+      //   name: 'customers',
+      //   id: 'customers',
+      //   icon: <RiContactsLine />,
+      // },
     ],
   },
   {
@@ -531,11 +537,11 @@ export const links = [
         id: 'tasks',
         icon: <BsKanban />,
       },
-      {
-        name: 'notes',
-        id: 'notes',
-        icon: <FiEdit />,
-      },
+      // {
+      //   name: 'notes',
+      //   id: 'notes',
+      //   icon: <FiEdit />,
+      // },
       // {
       //   name: 'logout',
       //   id: 'logout',
