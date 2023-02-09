@@ -113,7 +113,7 @@ const Products = () => {
             columns={columns}
             />
         </Box> :
-        <div className="flex flex-wrap w-full mt-10 justify-between gap-4 items-center relative">
+        <div className="flex flex-wrap w-full mt-10 mb-4 justify-between gap-4 items-center relative">
             {allProducts.map((item) => (
             <div key={item.title} className="drop-shadow-xl dark:hover:bg-gray-800 hover:bg-slate-200 cursor-pointer relative flex-grow bg-white h-36 text-black dark:text-gray-200 dark:bg-secondary-dark-bg mt-2 sm:mt-0 w-full lg:w-64 xl:w-64 p-3 rounded-2xl ">
                 
@@ -133,7 +133,7 @@ const Products = () => {
                             </div>
                             <span className="text-xs">
                                 {item.extraOptions.map((extra) => (
-                                <p className="text-xs text-black dark:text-gray-400 font-extralight" key={extra._id}>{extra.text} - {extra.price}</p>
+                                <p className="text-xs text-black dark:text-gray-400" key={extra._id}>{extra.text} - {extra.price}</p>
                                 ))}
                             </span>
                             {/* <p className="text-xs text-gray-400 truncate">{item._id}</p> */}
