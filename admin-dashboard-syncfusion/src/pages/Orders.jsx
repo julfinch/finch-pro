@@ -3,13 +3,14 @@ import Spinner from "../components/Spinner";
 import { Box } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import useWindowSize from "../hooks/useWindowSize";
+import { getAllOrders } from "../api/UserRequests";
 import { DataGrid } from "@mui/x-data-grid";
-import { getAllOrders } from "../api/UserRequests"
 
 const Orders = () => {
   const { width } = useWindowSize();
     const [allOrders, setAllOrders ] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const update = ["preparing", "on the way", "delivered"];
 
     useEffect(() => {
         const fetchOrders = async () => {
@@ -22,6 +23,9 @@ const Orders = () => {
         fetchOrders();
     },[])
 
+    function getStatus(params) {
+        return update[params.row.status+1];
+    }
     const columns = [
         {
         field: "_id",
@@ -36,6 +40,11 @@ const Orders = () => {
         {
         field: "address",
         headerName: "Address",
+        flex: 0.5,
+        },
+        {
+        field: "status",
+        headerName: "Status",
         flex: 0.5,
         },
         {
