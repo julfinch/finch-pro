@@ -211,8 +211,8 @@ const Products = () => {
                     </span>
                     ))}
                 </div>
-                <button onClick={handleCreate} className="mt-6 bg-gray-300 border-gray-400 py-1 w-full text-black dark:text-gray-200 dark:bg-secondary-dark-bg border rounded">
-                Create
+                <button disabled onClick={handleCreate} className="mt-6 bg-gray-300 border-gray-400 py-1 w-full text-black dark:text-gray-200 dark:bg-secondary-dark-bg border rounded">
+                Disabled
                 </button>
                 </Box>
             </Modal>
