@@ -1,6 +1,6 @@
 import React,{ useState, useEffect } from "react";
 import { Box, Typography, Modal } from "@mui/material";
-import { MdTableRows } from "react-icons/md";
+import { MdTableRows, MdClose } from "react-icons/md";
 import { BsFillGrid3X3GapFill, BsPlusLg } from "react-icons/bs";
 import { useStateContext } from '../contexts/ContextProvider';
 import Avatar from "@mui/material/Avatar";
@@ -133,10 +133,14 @@ const Products = () => {
                 aria-labelledby="modal-modal-title"
                 aria-describedby="modal-modal-description"
             >
-                <Box sx={style} className="bg-white text-black dark:text-gray-200 dark:bg-secondary-dark-bg">
-                <Typography id="modal-modal-title" variant="h6" component="h2">
-                Add a new product
-                </Typography>
+                <Box sx={style} className="bg-white mt-4 lg:mt-0 text-black dark:text-gray-200 dark:bg-secondary-dark-bg">
+                <div className="flex flex-row justify-between">
+                    <Typography id="modal-modal-title" variant="h6" component="h2">
+                    Add a new product
+                    </Typography>
+                    <MdClose size="28" onClick={handleClose} className="cursor-pointer hover:rounded-full hover:bg-gray-200"/>
+                </div>
+                
                 
                 <Typography id="modal-modal-description" sx={{ mt: 2, fontSize: '13px' }}>
                 Choose an image
