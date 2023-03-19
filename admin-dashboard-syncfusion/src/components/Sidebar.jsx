@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { GiFinch } from 'react-icons/gi';
 import { FiLogOut} from 'react-icons/fi';
 import { MdOutlineCancel } from 'react-icons/md';
-import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 import avatar from '../data/avatar.jpg';
 import { links } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
@@ -50,7 +49,7 @@ const Sidebar = () => {
             <Link to="/" onClick={handleCloseSideBar} className="items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tight dark:text-white text-slate-900">
               <GiFinch  size={42} color={currentColor}/> <span>FinchPro</span>
             </Link>
-            <TooltipComponent content="Menu" position="BottomCenter">
+            {/* <TooltipComponent content="Menu" position="BottomCenter"> */}
               <button
                 type="button"
                 onClick={() => setActiveMenu(!activeMenu)}
@@ -59,7 +58,7 @@ const Sidebar = () => {
               >
                 <MdOutlineCancel />
               </button>
-            </TooltipComponent>
+            {/* </TooltipComponent> */}
           </div>
           {/*Admin Profile Card */}
           {pathname !== "/" ? <div className="flex flex-col dark:text-gray-200 dark:bg-main-dark-bg shadow-md p-4 border dark:border-transparent rounded-md mt-1 mb-6 items-center justify-between">

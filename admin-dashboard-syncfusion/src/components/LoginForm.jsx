@@ -1,11 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { TextBoxComponent } from '@syncfusion/ej2-react-inputs';
-import { ButtonComponent } from '@syncfusion/ej2-react-buttons';
-import { enableRipple } from '@syncfusion/ej2-base';
-import { ProgressButtonComponent } from '@syncfusion/ej2-react-splitbuttons';
-enableRipple(true);
 
 const LoginForm = () => {
     const [pageType, setPageType] = useState("login");
@@ -139,17 +134,17 @@ const LoginForm = () => {
             <div className="flex flex-col">
                 {isRegister && (
                 <div>
-                <TextBoxComponent name="firstName" value={firstName} placeholder="First Name" onChange={(e) => setFirstName(e.target.value)} floatLabelType="Auto"/>
-                    <TextBoxComponent name="lastName" value={lastName} placeholder="Last Name" onChange={(e) => setLastName(e.target.value)} floatLabelType="Auto"/>
+                <input name="firstName" value={firstName} placeholder="First Name" onChange={(e) => setFirstName(e.target.value)} floatLabelType="Auto"/>
+                    <input name="lastName" value={lastName} placeholder="Last Name" onChange={(e) => setLastName(e.target.value)} floatLabelType="Auto"/>
                 </div>
                 )}
-                <TextBoxComponent name="email" value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)} floatLabelType="Auto"/>
-                <TextBoxComponent name="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)} floatLabelType="Auto"/>
+                <input name="email" value={email} placeholder="Email" onChange={(e) => setEmail(e.target.value)} floatLabelType="Auto"/>
+                <input name="password" value={password} placeholder="Password" onChange={(e) => setPassword(e.target.value)} floatLabelType="Auto"/>
                 <div className=" flex flex-col justify-evenly mt-4">
                     <div className="space-x-4">
                     
-                    <ProgressButtonComponent type="submit" content={isLogin ? "LOGIN" : "REGISTER"}/>
-                    <ButtonComponent type='reset'>RESET</ButtonComponent>
+                    <button type="submit" content={isLogin ? "LOGIN" : "REGISTER"}/>
+                    <button type='reset'>RESET</button>
                     </div>
                     <p
                         className="mt-6 text-sm cursor-pointer" 

@@ -527,16 +527,16 @@ export const links = [
   {
     title: 'Apps',
     links: [
-      {
-        name: 'calendar',
-        id: 'calendar',
-        icon: <AiOutlineCalendar />,
-      },
-      {
-        name: 'tasks',
-        id: 'tasks',
-        icon: <BsKanban />,
-      },
+      // {
+      //   name: 'calendar',
+      //   id: 'calendar',
+      //   icon: <AiOutlineCalendar />,
+      // },
+      // {
+      //   name: 'tasks',
+      //   id: 'tasks',
+      //   icon: <BsKanban />,
+      // },
       // {
       //   name: 'notes',
       //   id: 'notes',
@@ -775,7 +775,7 @@ export const recentTransactions = [
 export const weeklyStats = [
   {
     icon: <FiShoppingCart />,
-    amount: '-$560',
+    amount: '-$120',
     title: 'Top Sales',
     desc: 'Johnathan Doe',
     iconBg: '#FB9678',
@@ -783,7 +783,7 @@ export const weeklyStats = [
   },
   {
     icon: <FiStar />,
-    amount: '-$560',
+    amount: '-$470',
     title: 'Best Seller',
     desc: 'FinchPro',
     iconBg: 'rgb(254, 201, 15)',
@@ -792,6 +792,30 @@ export const weeklyStats = [
   {
     icon: <BsChatLeft />,
     amount: '+$560',
+    title: 'Most Liked',
+    desc: 'Ample Admin',
+    iconBg: '#00C292',
+    pcColor: 'text-green-600',
+  },
+  {
+    icon: <FiShoppingCart />,
+    amount: '+$730',
+    title: 'Top Selling Tea',
+    desc: 'Alishan High Tea',
+    iconBg: '#FB9678',
+    pcColor: 'text-red-600',
+  },
+  {
+    icon: <FiStar />,
+    amount: '-$390',
+    title: 'Top Branch',
+    desc: 'Ortigas',
+    iconBg: 'rgb(254, 201, 15)',
+    pcColor: 'text-red-600',
+  },
+  {
+    icon: <BsChatLeft />,
+    amount: '+$340',
     title: 'Most Liked',
     desc: 'Ample Admin',
     iconBg: '#00C292',
@@ -913,6 +937,389 @@ export const themeColors = [
     name: 'orange-theme',
   },
 ];
+
+export const transactionsLineData = [
+  {
+    "id": "Credit Card",
+    "color": "hsl(301, 70%, 50%)",
+    "data": [
+      {
+        "x": "JAN",
+        "y": 180
+      },
+      {
+        "x": "FEB",
+        "y": 91
+      },
+      {
+        "x": "MAR",
+        "y": 240
+      },
+      {
+        "x": "APR",
+        "y": 250
+      },
+      {
+        "x": "MAY",
+        "y": 500
+      },
+      {
+        "x": "JUN",
+        "y": 229
+      },
+      {
+        "x": "JUL",
+        "y": 292
+      },
+      {
+        "x": "AUG",
+        "y": 210
+      },
+      {
+        "x": "SEP",
+        "y": 174
+      },
+      {
+        "x": "OCT",
+        "y": 249
+      },
+      {
+        "x": "NOV",
+        "y": 114
+      },
+      {
+        "x": "DEC",
+        "y": 82
+      }
+    ]
+  },
+  {
+    "id": "Wallet",
+    "color": "hsl(132, 70%, 50%)",
+    "data": [
+      {
+        "x": "JAN",
+        "y": 124
+      },
+      {
+        "x": "FEB",
+        "y": 46
+      },
+      {
+        "x": "MAR",
+        "y": 13
+      },
+      {
+        "x": "APR",
+        "y": 18
+      },
+      {
+        "x": "MAY",
+        "y": 250
+      },
+      {
+        "x": "JUN",
+        "y": 281
+      },
+      {
+        "x": "JUL",
+        "y": 209
+      },
+      {
+        "x": "AUG",
+        "y": 26
+      },
+      {
+        "x": "SEP",
+        "y": 292
+      },
+      {
+        "x": "OCT",
+        "y": 132
+      },
+      {
+        "x": "NOV",
+        "y": 273
+      },
+      {
+        "x": "DEC",
+        "y": 38
+      }
+    ]
+  },
+  {
+    "id": "Debit Card",
+    "color": "hsl(269, 70%, 50%)",
+    "data": [
+      {
+        "x": "JAN",
+        "y": 123
+      },
+      {
+        "x": "FEB",
+        "y": 228
+      },
+      {
+        "x": "MAR",
+        "y": 245
+      },
+      {
+        "x": "APR",
+        "y": 57
+      },
+      {
+        "x": "MAY",
+        "y": 46
+      },
+      {
+        "x": "JUN",
+        "y": 274
+      },
+      {
+        "x": "JUL",
+        "y": 139
+      },
+      {
+        "x": "AUG",
+        "y": 215
+      },
+      {
+        "x": "SEP",
+        "y": 28
+      },
+      {
+        "x": "OCT",
+        "y": 25
+      },
+      {
+        "x": "NOV",
+        "y": 83
+      },
+      {
+        "x": "DEC",
+        "y": 205
+      }
+    ]
+  },
+  {
+    "id": "Paypal",
+    "color": "yellow",
+    "data": [
+      {
+        "x": "JAN",
+        "y": 171
+      },
+      {
+        "x": "FEB",
+        "y": 213
+      },
+      {
+        "x": "MAR",
+        "y": 160
+      },
+      {
+        "x": "APR",
+        "y": 164
+      },
+      {
+        "x": "MAY",
+        "y": 1
+      },
+      {
+        "x": "JUN",
+        "y": 261
+      },
+      {
+        "x": "JUL",
+        "y": 46
+      },
+      {
+        "x": "AUG",
+        "y": 220
+      },
+      {
+        "x": "SEP",
+        "y": 146
+      },
+      {
+        "x": "OCT",
+        "y": 29
+      },
+      {
+        "x": "NOV",
+        "y": 137
+      },
+      {
+        "x": "DEC",
+        "y": 248
+      }
+    ]
+  }
+]
+
+export const transactionsPieData = [
+  {
+    "id": "elixir",
+    "label": "elixir",
+    "value": 213,
+    "color": "#b992dd"
+  },
+  {
+    "id": "make",
+    "label": "make",
+    "value": 307,
+    "color": "hsl(265, 70%, 50%)"
+  },
+  {
+    "id": "go",
+    "label": "go",
+    "value": 377,
+    "color": "hsl(221, 70%, 50%)"
+  },
+]
+
+export const monthlyBarData = [
+  {
+    "year": "J",
+    "2023": 200,
+    "usaColor": "hsl(34, 70%, 50%)",
+  },
+  {
+    "year": "F",
+    "2023": 136,
+    "usaColor": "hsl(294, 70%, 50%)",
+  },
+  {
+    "year": "M",
+    "2023": 41,
+    "usaColor": "hsl(333, 70%, 50%)",
+  },
+  {
+    "year": "A",
+    "2023": 196,
+    "usaColor": "hsl(179, 70%, 50%)",
+  },
+  {
+    "year": "M",
+    "2023": 14,
+    "usaColor": "hsl(40, 70%, 50%)",
+  },
+  {
+    "year": "J",
+    "2023": 85,
+    "usaColor": "hsl(84, 70%, 50%)",
+  },
+]
+
+
+export const budgetBarData = [
+  {
+    "year": "2017",
+    "USA": 200,
+    "usaColor": "hsl(34, 70%, 50%)",
+    "INDIA": 149,
+    "indiaColor": "hsl(25, 70%, 50%)",
+    "GERMANY": 94,
+    "germanyColor": "hsl(122, 70%, 50%)",
+    "UK": 19,
+    "ukColor": "hsl(304, 70%, 50%)",
+    "AUSTRALIA": 59,
+    "australiaColor": "hsl(209, 70%, 50%)",
+    "CHINA": 40,
+    "chinaColor": "hsl(140, 70%, 50%)"
+  },
+  {
+    "year": "2018",
+    "USA": 136,
+    "usaColor": "hsl(294, 70%, 50%)",
+    "INDIA": 100,
+    "indiaColor": "hsl(212, 70%, 50%)",
+    "GERMANY": 89,
+    "germanyColor": "hsl(4, 70%, 50%)",
+    "UK": 71,
+    "ukColor": "hsl(198, 70%, 50%)",
+    "AUSTRALIA": 133,
+    "australiaColor": "hsl(74, 70%, 50%)",
+    "CHINA": 178,
+    "chinaColor": "hsl(242, 70%, 50%)"
+  },
+  {
+    "year": "2019",
+    "USA": 41,
+    "usaColor": "hsl(333, 70%, 50%)",
+    "INDIA": 182,
+    "indiaColor": "hsl(348, 70%, 50%)",
+    "GERMANY": 45,
+    "germanyColor": "hsl(264, 70%, 50%)",
+    "UK": 169,
+    "ukColor": "hsl(216, 70%, 50%)",
+    "AUSTRALIA": 54,
+    "australiaColor": "hsl(218, 70%, 50%)",
+    "CHINA": 143,
+    "chinaColor": "hsl(10, 70%, 50%)"
+  },
+  {
+    "year": "2020",
+    "USA": 196,
+    "usaColor": "hsl(179, 70%, 50%)",
+    "INDIA": 75,
+    "indiaColor": "hsl(40, 70%, 50%)",
+    "GERMANY": 199,
+    "germanyColor": "hsl(294, 70%, 50%)",
+    "UK": 200,
+    "ukColor": "hsl(119, 70%, 50%)",
+    "AUSTRALIA": 42,
+    "australiaColor": "hsl(166, 70%, 50%)",
+    "CHINA": 50,
+    "chinaColor": "hsl(331, 70%, 50%)"
+  },
+  {
+    "year": "2021",
+    "USA": 14,
+    "usaColor": "hsl(40, 70%, 50%)",
+    "INDIA": 63,
+    "indiaColor": "hsl(102, 70%, 50%)",
+    "GERMANY": 20,
+    "germanyColor": "hsl(13, 70%, 50%)",
+    "UK": 190,
+    "ukColor": "hsl(137, 70%, 50%)",
+    "AUSTRALIA": 43,
+    "australiaColor": "hsl(165, 70%, 50%)",
+    "CHINA": 165,
+    "chinaColor": "hsl(196, 70%, 50%)"
+  },
+  {
+    "year": "2022",
+    "USA": 71,
+    "usaColor": "hsl(315, 70%, 50%)",
+    "INDIA": 137,
+    "indiaColor": "hsl(62, 70%, 50%)",
+    "GERMANY": 6,
+    "germanyColor": "hsl(60, 70%, 50%)",
+    "UK": 103,
+    "ukColor": "hsl(76, 70%, 50%)",
+    "AUSTRALIA": 100,
+    "australiaColor": "hsl(281, 70%, 50%)",
+    "CHINA": 0,
+    "chinaColor": "hsl(176, 70%, 50%)"
+  },
+  {
+    "year": "2023",
+    "USA": 82,
+    "usaColor": "hsl(84, 70%, 50%)",
+    "INDIA": 9,
+    "indiaColor": "hsl(94, 70%, 50%)",
+    "GERMANY": 69,
+    "germanyColor": "hsl(127, 70%, 50%)",
+    "UK": 52,
+    "ukColor": "hsl(18, 70%, 50%)",
+    "AUSTRALIA": 193,
+    "australiaColor": "hsl(6, 70%, 50%)",
+    "CHINA": 189,
+    "chinaColor": "hsl(97, 70%, 50%)"
+  }
+]
+
 
 export const userProfileData = [
   {

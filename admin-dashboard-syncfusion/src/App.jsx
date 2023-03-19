@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { FiSettings } from 'react-icons/fi';
-import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
 import { Navbar, Sidebar, ThemeSettings } from './components';
-import { Ecommerce,Analytics, Orders,Messages,LoginPage, Calendar,Products, Employees, Stacked, Pyramid, Customers, Users, Kanban, Line, Area, Bar, Pie, Financial, ColorPicker, ColorMapping, Editor } from './pages';
+import { Ecommerce,Analytics, Orders,Messages,LoginPage, Products, Users } from './pages';
 import './App.css';
 import { useLocation, useNavigate } from "react-router-dom";
 import { useStateContext } from './contexts/ContextProvider';
@@ -59,11 +58,11 @@ const App = () => {
       
         <div className="flex bg-page-pattern bg-cover relative dark:bg-main-dark-bg">
           <div className={login ? "invisible" : "fixed right-4 bottom-4"} style={{ zIndex: '1000' }}>
-              <TooltipComponent content="Settings" position="Top" >
+              {/* <TooltipComponent content="Settings" position="Top" > */}
                 <button type="button" onClick={() => setThemeSettings(true)} style={{ background: currentColor, borderRadius: '50%' }} className="text-3xl text-white p-3 hover:drop-shadow-xl hover:bg-light-gray" >
                   <FiSettings />
                 </button>
-              </TooltipComponent>
+              {/* </TooltipComponent> */}
             </div>
 
             {activeMenu ? (
@@ -102,24 +101,6 @@ const App = () => {
                   <Route path="/orders" element={(isAuthenticated ? <Orders /> : <LoginPage />)} />
                   <Route path="/products" element={(isAuthenticated ? <Products /> : <LoginPage />)} />
                   <Route path="/users" element={(isAuthenticated ? <Users /> : <LoginPage />)} />
-                  <Route path="/employees" element={(isAuthenticated ? <Employees /> : <LoginPage />)} />
-                  <Route path="/customers" element={(isAuthenticated ? <Customers /> : <LoginPage />)} />
-
-                  {/* apps  */}
-                  <Route path="/tasks" element={(isAuthenticated ? <Kanban /> : <LoginPage />)} />
-                  <Route path="/notes" element={(isAuthenticated ? <Editor /> : <LoginPage />)} />
-                  <Route path="/calendar" element={(isAuthenticated ? <Calendar /> : <LoginPage />)} />
-                  <Route path="/color-picker" element={<ColorPicker />} />
-
-                  {/* charts  */}
-                  <Route path="/line" element={<Line />} />
-                  <Route path="/area" element={<Area />} />
-                  <Route path="/bar" element={<Bar />} />
-                  <Route path="/pie" element={<Pie />} />
-                  <Route path="/financial" element={<Financial />} />
-                  <Route path="/color-mapping" element={<ColorMapping />} />
-                  <Route path="/pyramid" element={<Pyramid />} />
-                  <Route path="/stacked" element={<Stacked />} />
 
                 </Routes>
               </div>

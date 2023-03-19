@@ -119,7 +119,7 @@ const Products = () => {
             <div className="flex flex-row mt-20 sm:mt-2 mb-2 justify-between">
             <p className="font-bold dark:text-gray-400 text-xl">Finch Tea Products</p>
             <div className="flex flex-row justify-evenly gap-2 items-center">
-            <button className="px-4 py-1 h-9 rounded-md drop-shadow-xl dark:hover:bg-gray-700 w-14 grid place-content-center dark:hover:border-gray-500 dark:hover:border hover:bg-slate-200  dark:bg-secondary-dark-bg"  onClick={handleOpen}>
+            <button aria-label='plus' className="px-4 py-1 h-9 rounded-md drop-shadow-xl dark:hover:bg-gray-700 w-14 grid place-content-center dark:hover:border-gray-500 dark:hover:border hover:bg-slate-200  dark:bg-secondary-dark-bg"  onClick={handleOpen}>
                 <BsPlusLg fill={currentColor} size="24"/>
             </button>
             <button className="px-4 py-1 h-9 rounded-md drop-shadow-xl dark:hover:bg-gray-700 w-14 grid place-content-center dark:hover:border-gray-500 dark:hover:border hover:bg-slate-200  dark:bg-secondary-dark-bg" onClick={() => setIsGrid(!isGrid)}>

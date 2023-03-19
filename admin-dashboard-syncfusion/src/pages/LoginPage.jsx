@@ -212,7 +212,7 @@ const LoginPage = () => {
                                     placeholder="Email"
                                     />
                                 </div>
-                                <div className="flex flex-wrap w-full relative h-10 bg-white items-center rounded mb-4">
+                                <div className="flex flex-wrap w-full relative h-10 bg-white items-center rounded mb-4  mt-2 pr-10">
                                     <div className="flex -mr-px justify-center w-15 p-2">
                                     <span
                                         className="flex items-center leading-normal bg-white rounded rounded-r-none text-2xl px-3 whitespace-no-wrap text-gray-600"

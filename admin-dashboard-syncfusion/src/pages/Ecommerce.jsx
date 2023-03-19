@@ -1,20 +1,25 @@
-import React, {useEffect, useState} from 'react';
+import React, { useMemo, useEffect, useState } from 'react';
 import { AiOutlineCalendar } from 'react-icons/ai'
 import { HiDotsVertical,HiTrendingUp, HiOutlineDotsCircleHorizontal } from 'react-icons/hi'
 import { BsArrowUp } from 'react-icons/bs';
 import { GoPrimitiveDot } from 'react-icons/go';
 import { MdOpenInNew } from 'react-icons/md';
 import useWindowSize from "../hooks/useWindowSize";
-
-import { Stacked, Button, SparkLine } from '../components';
-import { earningData, topSales, topCountries, SparklineAreaData,} from '../data/dummy';
+import { ResponsiveBar } from '@nivo/bar'
+import { ResponsiveLine } from "@nivo/line";
+import { Box, useTheme } from "@mui/material";
+import { Button } from '../components';
+import { earningData, topSales, topCountries, budgetBarData } from '../data/dummy';
 import { useStateContext } from '../contexts/ContextProvider';
 import { useNavigate } from "react-router-dom";
 
 
 const Ecommerce = () => {
+  const [startDate, setStartDate] = useState(new Date("2021-02-01"));
+  const [endDate, setEndDate] = useState(new Date("2021-03-01"));
+  const data = budgetBarData
   const { width } = useWindowSize();
-  const { currentColor, currentMode } = useStateContext();
+  const { currentColor, currentMode, fontColor } = useStateContext();
   const navigate = useNavigate();
   // const [user, setUser] = useState({})
   const user = JSON.parse(localStorage.getItem('user'))
@@ -25,8 +30,7 @@ const Ecommerce = () => {
   //   }
   // }, [])
   
-  
-
+ 
   return (
     <div className="mt-4">
       {/*Dashboard Header*/}
@@ -40,7 +44,7 @@ const Ecommerce = () => {
           {earningData.map((item) => (
             <div key={item.title} className="shadow-sm flex-grow bg-white h-28 dark:text-gray-200 dark:bg-secondary-dark-bg mt-2 sm:mt-0 w-full lg:w-48 xl:w-64 p-3 rounded-2xl ">
               <div className="flex flex-row justify-between items-center">
-                <p className="text-sm text-gray-400 ">{item.title}</p>
+                <h4 className=" text-gray-400 ">{item.title}</h4>
                 <HiDotsVertical/>
               </div>
               <div className="flex flex-row items-center justify-between mt-3">
@@ -66,12 +70,12 @@ const Ecommerce = () => {
       </div>
       
       {/*Main Chart*/}
-      <div className="flex gap-1 lg:pl-3 flex-wrap justify-center p-4 lg:p-0">
-        <div className="shadow flex-1 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-4 rounded-2xl h-98 w-full">
+      <div className="flex gap-1 lg:pl-3 flex-wrap justify-center lg:p-0 ">
+        <div className="shadow flex-1 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg px-4 pt-4 pb-10 rounded-2xl h-96 w-64">
           <div className="flex justify-between border-b pb-2">
             <p className="font-semibold text-sm">Revenue Updates</p>
             <div className="flex items-center gap-4">
-              <p className="flex items-center text-xs gap-2 text-gray-600 hover:drop-shadow-xl">
+              {/* <p className="flex items-center text-xs gap-2 text-gray-600 hover:drop-shadow-xl">
                 <span>
                   <GoPrimitiveDot />
                 </span>
@@ -82,45 +86,165 @@ const Ecommerce = () => {
                   <GoPrimitiveDot />
                 </span>
                 <span>Budget</span>
-              </p>
+              </p> */}
             </div>
           </div>
-          <div className="xl:mt-3 flex xl:gap-4 flex-wrap xl:justify-center">
-            <div className=" xl:border-r-1 border-color m-4 xl:pr-10">
-              <div>
-                <p>
-                  <span className="text-lg font-semibold">$93,438</span>
-                  <span className="p-1.5 hover:drop-shadow-xl cursor-pointer rounded-full text-white bg-green-400 ml-3 text-xs">
-                    23%
-                  </span>
-                </p>
-                <p className="text-sm text-gray-500 mt-1">Budget</p>
-              </div>
-              <div className="mt-2">
-                <p className="text-lg font-semibold">$48,487</p>
 
-                <p className="text-sm text-gray-500 mt-1">Expense</p>
-              </div>
-
-              <div className="lg:-mt-28 xl:mt-5 lg:ml-40 xl:ml-0">
-                <SparkLine currentColor={currentColor} id="line-sparkLine" type="Line" height="100px" width="250px" data={SparklineAreaData} color={currentColor} /> 
-              </div>
-              <div className="lg:-mt-3 xl:mt-6 lg:ml-72 xl:ml-0">
-                <Button
-                  color="white"
-                  size={`${ width > 1100 ? "" : "xs"}`}
-                  bgColor={currentColor}
-                  text="Download Report"
-                  borderRadius="10px"
-                  padding={`${ width > 1100 ? "3" : "2"}`}
-                />
-              </div>
-            </div>
-            <div className="lg:visible">
-              {width > 1100 ? <Stacked currentMode={currentMode} width="335px" height="330px"/> : <Stacked currentMode={currentMode} width={width < 500 ? "300px" : "450px"} height="230px"/>}
-            </div>
-          </div>
+          {data ? (
+            <ResponsiveBar
+              data={data}
+              theme={{
+                    axis: {
+                      domain: {
+                        line: {
+                          stroke: fontColor,
+                        },
+                      },
+                      legend: {
+                        text: {
+                          fill: fontColor,
+                        },
+                      },
+                      ticks: {
+                        line: {
+                          stroke: fontColor,
+                          strokeWidth: 1,
+                        },
+                        text: {
+                          fill: fontColor,
+                        },
+                      },
+                    },
+                    legends: {
+                      text: {
+                        fill: fontColor,
+                      },
+                    },
+                    tooltip: {
+                      container: {
+                        color: "rgba(1,1,1,0.8)",
+                      },
+                    },
+                  }}
+              keys={[
+                  'USA',
+                  'INDIA',
+                  'GERMANY',
+                  'UK',
+                  'AUSTRALIA',
+                  'CHINA'
+              ]}
+              indexBy="year"
+              margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+              padding={0.3}
+              valueScale={{ type: 'linear' }}
+              indexScale={{ type: 'band', round: true }}
+              colors={{ scheme: 'nivo' }}
+              defs={[
+                  {
+                      id: 'dots',
+                      type: 'patternDots',
+                      background: 'inherit',
+                      color: '#38bcb2',
+                      size: 4,
+                      padding: 1,
+                      stagger: true
+                  },
+                  {
+                      id: 'lines',
+                      type: 'patternLines',
+                      background: 'inherit',
+                      color: '#eed312',
+                      rotation: -45,
+                      lineWidth: 6,
+                      spacing: 10
+                  }
+              ]}
+              fill={[
+                  {
+                      match: {
+                          id: 'AUSTRALIA'
+                      },
+                      id: 'dots'
+                  },
+                  {
+                      match: {
+                          id: 'GERMANY'
+                      },
+                      id: 'lines'
+                  }
+              ]}
+              borderColor={{
+                  from: 'color',
+                  modifiers: [
+                      [
+                          'darker',
+                          1.6
+                      ]
+                  ]
+              }}
+              axisTop={null}
+              axisRight={null}
+              axisBottom={{
+                  tickSize: 5,
+                  tickPadding: 5,
+                  tickRotation: 0,
+                  legend: 'year',
+                  legendPosition: 'middle',
+                  legendOffset: 32
+              }}
+              axisLeft={{
+                  tickSize: 5,
+                  tickPadding: 5,
+                  tickRotation: 0,
+                  legend: 'revenue($)',
+                  legendPosition: 'middle',
+                  legendOffset: -40
+              }}
+              labelSkipWidth={12}
+              labelSkipHeight={12}
+              labelTextColor={{
+                  from: 'color',
+                  modifiers: [
+                      [
+                          'darker',
+                          1.6
+                      ]
+                  ]
+              }}
+              legends={[
+                  {
+                      dataFrom: 'keys',
+                      anchor: 'bottom-right',
+                      direction: 'column',
+                      justify: false,
+                      translateX: 120,
+                      translateY: 0,
+                      itemsSpacing: 2,
+                      itemWidth: 100,
+                      itemHeight: 20,
+                      itemDirection: 'left-to-right',
+                      itemOpacity: 0.85,
+                      symbolSize: 20,
+                      effects: [
+                          {
+                              on: 'hover',
+                              style: {
+                                  itemOpacity: 1
+                              }
+                          }
+                      ]
+                  }
+              ]}
+              role="application"
+              ariaLabel="Revenue Updates"
+              barAriaLabel={function(e){return e.id+": "+e.formattedValue+" in country: "+e.indexValue}}
+            />
+          ) : (
+            <>Loading...</>
+          )}         
         </div>
+        
         {/*RIGHT BARS*/}
         <div className='flex flex-col mt-2 lg:mt-0'>
           {/*1st Right Bar*/}
